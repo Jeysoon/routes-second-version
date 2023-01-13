@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
-interface RouteData {
+export interface RouteData {
   viewId: string | null;
   subclassId: string | null;
 }

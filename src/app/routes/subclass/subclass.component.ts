@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RouteData } from 'src/app/resolvers/route-resolver.resolver';
 
 @Component({
   selector: 'app-subclass',
@@ -7,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubclassComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
   }
 

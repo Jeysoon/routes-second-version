@@ -14,14 +14,14 @@ const routes: Routes = [
     path: 'subclass/:subclassId',
     component: SubclassComponent,
     resolve: {
-      data: RouteResolverResolver
+      routeData: RouteResolverResolver
     }
   },
   {
     path: 'view-details/:subclassId/:viewId',
     component: ViewDetailsComponent,
     resolve: {
-      data: RouteResolverResolver
+      routeData: RouteResolverResolver
     }
   },
   {
