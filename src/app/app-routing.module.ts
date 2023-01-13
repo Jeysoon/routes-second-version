@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GetSubclassDataResolver } from './resolvers/get-subclass-data.resolver';
+import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { RouteResolverResolver } from './resolvers/route-resolver.resolver';
-import { SubclassComponent } from './subclass/subclass.component';
-import { ViewDetailsComponent } from './view-details/view-details.component';
+import { SubclassComponent } from './routes/subclass/subclass.component';
+import { ViewDetailsComponent } from './routes/view-details/view-details.component';
 
 const routes: Routes = [
   {
@@ -14,18 +13,23 @@ const routes: Routes = [
   {
     path: 'subclass/:subclassId',
     component: SubclassComponent,
-    resolve: RouteResolverResolver
+    resolve: {
+      data: RouteResolverResolver
+    }
   },
   {
     path: 'view-details/:subclassId/:viewId',
     component: ViewDetailsComponent,
-    resolve: RouteResolverResolver
+    resolve: {
+      data: RouteResolverResolver
+    }
   },
   {
     path: '**',
     redirectTo: 'dashboard'
   }
 ];
+//Make the route folder with these three routes
 //My resolver is gonna connect to the store and the store needs
 // to retrieve me the viewDetails id
 

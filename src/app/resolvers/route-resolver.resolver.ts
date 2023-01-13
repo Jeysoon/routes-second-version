@@ -6,16 +6,20 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
+interface RouteData {
+  viewId: string | null;
+  subclassId: string | null;
+}
+
 @Injectable({
   providedIn: 'root'
 })
-export class RouteResolverResolver implements Resolve<boolean> {
-  //Needs to hard code return subclassId and viewId get it from the route
-  // viewId;
-  // subclassId;
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+export class RouteResolverResolver implements Resolve<RouteData> {
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RouteData> {
   const viewId = route.paramMap.get('viewId');
   const subclassId = route.paramMap.get('subclassId');
-    return of(true);
+    return of({viewId, subclassId});
   }
+
 }
